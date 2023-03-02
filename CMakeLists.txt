@@ -1,8 +1,7 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
+cmake_minimum_required(VERSION 3.15)
 PROJECT(PocoMD5 CXX)
 
-INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-CONAN_BASIC_SETUP()
+find_package(Poco REQUIRED)
 
 ADD_EXECUTABLE(md5 md5.cpp)
-TARGET_LINK_LIBRARIES(md5 ${CONAN_LIBS})
+target_link_libraries(${PROJECT_NAME} Poco::Poco)
