@@ -1,15 +1,12 @@
-#include "Poco/MD5Engine.h"
-#include "Poco/DigestStream.h"
-
 #include <iostream>
+#include <string>
+#include "Poco/MD5Engine.h"
 
+using namespace Poco;
 
-int main(int argc, char** argv)
-{
-    Poco::MD5Engine md5;
-    Poco::DigestOutputStream ds(md5);
-    ds << "abcdefghijklmnopqrstuvwxyz";
-    ds.close();
-    std::cout << Poco::DigestEngine::digestToHex(md5.digest()) << std::endl;
-    return 0;
+int main(){
+    MD5Engine md5;
+    md5.update("Hello World");
+    std::string md5string = DigestEngine::digestToHex(md5.digest());
+    std::cout<< "MD5= " << md5string << "\n";
 }
