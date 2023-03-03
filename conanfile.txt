@@ -1,5 +1,6 @@
 [requires]
 poco/1.12.4
+zlib/1.2.11
 
 [generators]
 CMakeDeps
